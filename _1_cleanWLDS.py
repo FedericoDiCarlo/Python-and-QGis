@@ -15,18 +15,15 @@
 
 # from qgis.analysis import QgsNativeAlgorithms
 
-# # See https://gis.stackexchange.com/a/155852/4972 for details about the prefix
 #Setting the path where QGis will store temporal data when running the model:
 
 # QgsApplication.setPrefixPath('C:/OSGeo4W64/apps/qgis', True)
 # qgs = QgsApplication([], False)
 # qgs.initQgis()
-
-# # Add the path to Processing framework  
 # sys.path.append('C:/OSGeo4W64/apps/qgis/python/plugins')
 
-# # Import and initialize Processing framework
 # Setting processing framework
+
 # import processing
 # from processing.core.Processing import Processing
 # Processing.initialize()
