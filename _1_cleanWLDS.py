@@ -1,7 +1,5 @@
 #########################################################################################
 #########################################################################################
-# SETUP PREAMBLE FOR RUNNING STANDALONE SCRIPTS.
-# NOT NECESSARY IF YOU ARE RUNNING THIS INSIDE THE QGIS GUI.
 # print('preliminary setup')
 # import sys
 # import os
