@@ -69,9 +69,7 @@ fixgeo_dict = {
     'INPUT': countries,
     'OUTPUT': 'memory:'
 }
-# De processing, processing.run corre un algoritmo. Sintaxis: processing.run(name_of_the_algorithm, parameters).
-# En el caso de fixgeometries, los parámetros son un diccionario que se debe haber creado previamente (línea 56).
-# Como el output está en la memoria, fix_geo es el diccionario que resulta de aplicar fixgeometries (en vez de guardarlo como otra capa u otra base, lo guarda en la memoria).
+# De processing, processing.run corre el algoritmo para corregir la geografía.
 fix_geo = processing.run('native:fixgeometries', fixgeo_dict)['OUTPUT']
 
 ##################################################################
