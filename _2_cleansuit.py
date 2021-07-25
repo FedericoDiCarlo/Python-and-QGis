@@ -39,7 +39,7 @@ mainpath = "YOUR PATH"
 suitin = "{}/suit/suit/hdr.adf".format(mainpath)
 #Carpeta donde se van a guardar los outputs
 outpath = "{}/_output/".format(mainpath)
-#Archivo GIF que vamos a crear (output)
+#Archivo TIFF que vamos a crear (output)
 suitout = "{}/landquality.tif".format(outpath)
 
 # Defining a map projection, EPSG:4326
@@ -66,6 +66,14 @@ warp_dict = {
     'TARGET_RESOLUTION': None,
     'OUTPUT': suitout
 }
+
+# Algunos de los parámetros son:
+#   1 Tipo de datos: se refiere al tipo de datos de salida. 0 es tipo de datos del input layer.
+#   3 Input: input layer. En este caso el ráster.
+#   4 Usar implementación de warp multhilo: el Default es False.
+#   7 Resampling: 0 = vecino más próximo.
+#   9 Taget CRS: Proyección que se quiere hacer. En este caso es WGS84. Se puede dejar preseteado en usar CRS del proyecto.
+#   13 Output: nombre del output.
 processing.run('gdal:warpreproject', warp_dict)
 
 
