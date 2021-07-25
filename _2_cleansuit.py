@@ -33,22 +33,23 @@
 #########################################################################################
 #########################################################################################
 
-# set paths to inputs and outputs
-mainpath = "/Users/magibbons/Desktop/Herramientas/Clase5/input"
+# Cambiar YOUR PATH por el directorio.
+mainpath = "YOUR PATH"
+#Archivo raster que vamos a utilizar (input)
 suitin = "{}/suit/suit/hdr.adf".format(mainpath)
+#Carpeta donde se van a guardar los outputs
 outpath = "{}/_output/".format(mainpath)
+#Archivo GIF que vamos a crear (output)
 suitout = "{}/landquality.tif".format(outpath)
 
-# defining WGS 84 SR
+# Defining a map projection, EPSG:4326
 crs_wgs84 = QgsCoordinateReferenceSystem("epsg:4326")
 
 ##################################################################
-# Warp (reproject)
+# Reproyección
 ##################################################################
-# note: Warp does not accept memory output
-# could also specify: 'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT
-# this will create new files in your OS temp directory (in my (Windows) case:
-# /user/Appdata/Local/Temp/processing_somehashkey
+# definimos lo que queremos reproyectar, creamos un archivo .prj con la proyección para agriculture suitability usando WGS84.
+# De processing, processing.run corre un algoritmo. Sintaxis: processing.run(name_of_the_algorithm, parameters).
 print('defining projection for the suitability data')
 warp_dict = {
     'DATA_TYPE': 0,
@@ -69,8 +70,9 @@ processing.run('gdal:warpreproject', warp_dict)
 
 
 ##################################################################
-# Extract projection
+# Extraer la reproyección
 ##################################################################
+#Extrae el archivo creado previamente (.prj). Utiliza el procedimiento habitual, le avisa lo que va a hacer (extrer el archivo) y lo guarda.
 print('extracting the projection for land suitability')
 extpr_dict = {
     'INPUT': suitout,
