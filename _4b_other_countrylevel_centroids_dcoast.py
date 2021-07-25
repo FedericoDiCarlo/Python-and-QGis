@@ -1,10 +1,13 @@
 #########################################################################################
 #########################################################################################
-# SETUP PREAMBLE FOR RUNNING STANDALONE SCRIPTS.
-# NOT NECESSARY IF YOU ARE RUNNING THIS INSIDE THE QGIS GUI.
+######### Preliminary setup to use when not running the model within QGis################
+
+# Hay que importar las librerías si no corrés en QGIS. Importante tener en cuenta para buscar built-in functions o methods.
+
 print('preliminary setup')
 import sys
 import os
+# Importando comandos para correr el shapefile:
 
 from qgis.core import (
     QgsApplication
@@ -12,15 +15,13 @@ from qgis.core import (
 
 from qgis.analysis import QgsNativeAlgorithms
 
-# See https://gis.stackexchange.com/a/155852/4972 for details about the prefix 
+#Estableciendo el directorio donde se van a guardar los datos temporales cuando se corra el modelo:	
 QgsApplication.setPrefixPath('C:/OSGeo4W64/apps/qgis', True)
 qgs = QgsApplication([], False)
-qgs.initQgis()
-
-# Add the path to Processing framework  
+qgs.initQgis() 
 sys.path.append('C:/OSGeo4W64/apps/qgis/python/plugins')
 
-# Import and initialize Processing framework
+# Estableciendo el processing framework
 import processing
 from processing.core.Processing import Processing
 Processing.initialize()
@@ -29,10 +30,12 @@ QgsApplication.processingRegistry().addProvider(QgsNativeAlgorithms())
 #########################################################################################
 
 # set paths to inputs and outputs
-mainpath = "/Users/magibbons/Desktop/Herramientas/Clase5/input"
-outpath = "{}/_output".format(mainpath)
+# Cambiar YOUR PATH por el directorio.
+mainpath = "YOUR PATH"
+# Carpeta donde se van a guardar los outputs
+outpath = "{}/_output/".format(mainpath)
 junkpath = "{}/junk".format(outpath)
-
+# Archivos shape que vamos a utilizar
 coastin = "{}/ne_10m_coastline/ne_10m_coastline.shp".format(mainpath)
 adminin = "{}/ne_10m_admin_0_countries/ne_10m_admin_0_countries.shp".format(mainpath)
 
@@ -55,11 +58,13 @@ if not os.path.exists(junkpath):
 # #########################################################
 # # Fix geometries
 # #########################################################
+# Para corregir la geografía utiliza el diccionario fix geometries en la costa
 print('fixing geometries, coast')
  fg1_dict = {
      'INPUT': coastin,
      'OUTPUT': 'memory:'
  }
+# De processing, processing.run corre el algoritmo para corregir la geografía y lo guarda como fixgeo_coast.
  fixgeo_coast = processing.run('native:fixgeometries', fg1_dict)['OUTPUT']
 
 # #########################################################
