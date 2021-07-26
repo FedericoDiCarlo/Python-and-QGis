@@ -16,5 +16,6 @@ Seis conlusiones surgen a simple vista.
 4. A mediados de 1870, el ferrocarril llega a la costa oeste de EEUU.
 5. Hacia 1883 todos los estados estaban conectados con la red de ferrocarriles (aparte de la vía central abierta a mediados de 1870, hubo vías abiertas en el norte y sur que conectaban este y oeste).
 6. De 1890 en adelante, empiezan a surgir conexiones interestatales que llegaban a otros condados.
+7. Los estados actuales que mas retrasada vieron la llegada del ferrocarril fueron los del noroeste y sur de los Estados Unidos (Texas, New Mexico, etc).
 
 El próximo avance incluiría datos de inmigración a nivel de condado que permita observar esta variabilidad en el timing de la construcción del ferrocarril y los influjos de inmigración.
