@@ -9,7 +9,7 @@ Como es posible que, al medir la performance económica en un condado, haya prob
 
 En un intento por tratar de explicar cómo fueron los movimientos de los inmigrantes en tierra, se hace un gif que muestra la red de ferrocarriles desde 1830 hasta 1921 (recordar que el periodo de análisis es desde 1850 a 1920).
 
-Seis conlusiones surgen a simple vista.
+Siete conlusiones surgen a simple vista.
 1. La red de ferrocarriles comienza en el este de EEUU.
 2. Hacia 1850, casi todos los estados del este estaban conectados.
 3. A mediados de 1860, todos los estados del este estaban conectados entre sí por la red de ferrocarriles.
