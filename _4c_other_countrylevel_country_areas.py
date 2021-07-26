@@ -60,7 +60,7 @@ drop_dict = {
     'INPUT': admin_in,
     'OUTPUT': 'memory:'
 }
-# Usa el algoritmo deletecolumn para borrar todas las columnas que están en el diccionario.
+# Usa el algoritmo deletecolumn para borrar todas las columnas que están en el diccionario. Lo guarda en countries_drop_fields.
 countries_drop_fields = processing.run('qgis:deletecolumn', drop_dict)['OUTPUT']
 
 ##################################################################
