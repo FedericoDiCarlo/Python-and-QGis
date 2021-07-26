@@ -51,25 +51,25 @@ outcsv = "{}/nlangs_country.csv".format(outpath)
 #########################################################
 # Fix geometries
 #########################################################
-# Para corregir la geografía utiliza el diccionario fix geometries en los lenguajes
+# Para corregir la geometria utiliza el diccionario fix geometries en los lenguajes
 print('fixing geometries, languages')
 fg1_dict = {
     'INPUT': wlds,
     'OUTPUT': 'memory:'
 }
-# De processing, processing.run corre el algoritmo para corregir la geografía y lo guarda como fixgeo_wlds.
+# De processing, processing.run corre el algoritmo para corregir la geometria y lo guarda como fixgeo_wlds.
 fixgeo_wlds = processing.run('native:fixgeometries', fg1_dict)['OUTPUT']
 
 #########################################################
 # Fix geometries
 #########################################################
-# Para corregir la geografía utiliza el diccionario fix geometries en los países.
+# Para corregir la geometria utiliza el diccionario fix geometries en los países.
 print('fixing geometries, countries')
 fg2_dict = {
     'INPUT': admin,
     'OUTPUT': 'memory:'
 }
-# De processing, processing.run corre el algoritmo para corregir la geografía y lo guarda como fixgeo_countries.
+# De processing, processing.run corre el algoritmo para corregir la geometria y lo guarda como fixgeo_countries.
 fixgeo_countries = processing.run('native:fixgeometries', fg2_dict)['OUTPUT']
 
 #########################################################
