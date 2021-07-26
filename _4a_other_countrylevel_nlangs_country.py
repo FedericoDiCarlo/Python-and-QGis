@@ -1,6 +1,7 @@
 #########################################################################################
 #########################################################################################
 ######### Preliminary setup to use when not running the model within QGis################
+# Sin comentarios a los comentarios de Fede.
 # Hay que importar las librerías si no corrés en QGIS. Importante tener en cuenta para buscar built-in functions o methods.
 
 # print('preliminary setup')
