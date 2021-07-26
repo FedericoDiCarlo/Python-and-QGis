@@ -91,17 +91,27 @@ drop_dict = {
 # Usa el algoritmo deletecolumn para borrar todas las columnas que están en el diccionario.
 drop_fields = processing.run('qgis:deletecolumn', drop_dict)['OUTPUT']
 
-# Genera un loop en los rasters
-for idx, rast in enumerate(RASTS):
+# Genera un loop en los rasters. Indexa los raters de 0 a 3, lo usa más tarde. enumerate() en un loop se usa para enumerar objetos https://realpython.com/python-enumerate/
+# Este enumerate tiene el problema que solamente guarda 'pd20_' en pref. Probablemente tenga que ver con que se ha ido corriendo el modelo y se han ido desactivando los algoritmos previos. Pareciera que falta un argumento en el loop. Seguro que le falta algo porque está usando solamente idx y no está usando rast.
+# Por ejemplo
+#for idx, rast in enumerate(RASTS):
+#  print(idx,rast)
+# Debería dar como resultado
+# 0 landqual
+# 1 popd1500
+# 2 popd1990
+# 3 popd2000
 
+for idx, rast in enumerate(RASTS):
+	
 	pref = PREFS[idx]
 
-#ACA HAY QUE EXPLICAR ALGO DEL LOOP PERO NO LO ESTOY ENTENDIENDO
 
 ###################################################################
 # Zonal statistics
 ###################################################################
 #Primero explica lo que va a hacer. Luego crea un diccionario con el raster de calidad de la tierra y con el vector drop_fields creado anteriormente realiza el promedio.
+# Acá usa el loop. pref es una variable string con el valor 'pd20_' al que le va a calcular la media con zonalstatistics. Probablemente, se haya querido que pref sea una lista de 4 variables y que le calcule la media a las 4 variables de esa lista
 print('computing zonal stats {}'.format(pref))
 zs_dict = {
 	   'COLUMN_PREFIX': pref,
